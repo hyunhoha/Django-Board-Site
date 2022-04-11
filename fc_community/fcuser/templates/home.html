@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+
+{% block contents %}
+<div class="row mt-5">
+    <div class="col-12 text-center">
+        <h1>홈페이지!</h1>
+    </div>
+</div>
+<div class="row mt-5">
+    {% if request.session.user %}
+    <div class="d-grid gap-2">
+    {% comment %} <div class="col-6"> {% endcomment %}
+        <button class="btn btn-primary btn-block" onclick="location.href='/fcusers/logout/'">로그아웃</button>
+    {% comment %} </div> {% endcomment %}
+    </div>
+    {% else %}
+    {% comment %} <div class="d-grid gap-2 d-md-block col-6 "> {% endcomment %}
+    <div class="btn-group" role="group" >
+    {% comment %} <div class="col-6"> {% endcomment %}
+        <button class="btn btn-primary btn-block" onclick="location.href='/fcusers/login/'">로그인</button>
+    {% comment %} </div> {% endcomment %}
+    {% comment %} <div class="col-6"> {% endcomment %}
+        <button class="btn btn-primary btn-block" onclick="location.href='/fcusers/register/'">회원가입</button>
+    {% comment %} </div> {% endcomment %}
+    </div>
+    {% endif %}
+</div>
+<div class="row mt-1">
+    <div class="d-grid gap-2">
+        <button class="btn btn-primary btn-block" onclick="location.href='/board/list'">게시물 보기</button>
+    </div>
+</div>
+    
+
+
+{% endblock %}

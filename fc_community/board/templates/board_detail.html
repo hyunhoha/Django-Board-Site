@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+
+{% block contents %}
+<div class="row mt-5">
+    <div class="col-12 text-center">
+        <h1>게시판</h1>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-12">
+        {{ error }}
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-12">
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input type="text" class="form-control" id="title" value="{{board.title}}" readonly />
+                <label for="contents">내용</label>
+                <textarea class="form-control" readonly>{{board.contents}}</textarea> 
+                <label for="tag">태그</label>
+                <span id="tags" class="form-control">
+                    {{ board.tag.all|join:", "}}
+                    {% comment %} {% for tag in board.tag.all %} {% endcomment %}
+                    {% comment %} {{ tag.name }},  {% endcomment %}
+                    {% comment %} {% endfor %} {% endcomment %}
+                </span>
+            </div>
+            <button class="btn btn-primary" onclick="location.href='/board/list'">돌아가기</button>
+    </div>
+</div>
+
+            
+<!-- 
+        <form method="POST" action=".">
+            {% csrf_token %}
+            {% for field in form %}
+              <div class="form-group">
+                  <label for="{{ field.id_for_label }}">{{field.label}}</label>
+                  <input type="{{ field.field.widget.input_type }}" class="form-control" id="{{field.id_for_label}}" name="{{field.name}}" placeholder="{{field.label}}">
+            </div>
+            {% if field.errors %}
+            <span style="color : red">{{field.errors}}</span>
+            {% endif %}
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary">로그인</button>
+        </form>
+    </div>
+</div> -->
+
+
+{% endblock %}
