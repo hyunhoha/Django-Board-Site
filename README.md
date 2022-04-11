@@ -7,20 +7,20 @@
 APPS : fcuser (유저 데이터), Board(게시판 글 관리), Tag(글 태그 관리)
 
 Models :
- <Fcuser> :
+ **Fcuser :
 - user_name : Char (사용자명)
 - password : Char (비밀번호)
 - registerdttm : DateTime (등록시간)
 - user_email : Email (유저 이메일)
   
- <Board> :
+ **Board :
 - title : Char (제목)
 - contents : Text (내용)
 - writer : Foreign Key (Fcuser) (작성자)
 - registereddttm : DateTime (작성시간)
 - tag : ManyToMany (태그)
    
- <Tag> :
+ **Tag :
    name : Char (태그명)
    registeredttm : Datetime (등록시간)
    
